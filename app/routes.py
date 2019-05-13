@@ -46,7 +46,6 @@ def upload_file():
                     path=request.form['myfile.path']
                 )
     else:
-        # Werkzeug `FileStorage` (normal HTTP Post)
         if 'myfile' in request.files and request.files['myfile']:
             upload_file = request.files['myfile']
             mins = form.lifetime_minutes.data
@@ -169,7 +168,6 @@ def show_delete_file(key, secret):
         abort(404)
 
     if request.method == 'POST':
-        # delete the file and redirect to the upload form
         shared_file.delete()
         flash(_('Your file have been deleted.'))
         return redirect(url_for('show_upload_form'))
