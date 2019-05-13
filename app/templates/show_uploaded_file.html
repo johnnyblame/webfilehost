@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header">
+ <h1>{{ _('Congratulations!') }} <small>{{ _('Your file was successfully uploaded.') }}</small></h1>
+</div>
+
+<p>{{ _('The file <strong>%(f)s</strong> is now available.', f=f.filename) }}</p>
+
+<div class="download-link">
+ <p>
+  <a class="btn btn-success btn-large"
+     href="{{ url_for('show_get_file', key=f.key) }}">
+   {{ url_for('show_get_file', key=f.key, _external=True) }}
+  </a>
+ </p>
+</div>
+
+<p>
+  {{ _('Not the right file?') }}
+  <a class="btn btn-danger"
+     href="{{ url_for('show_delete_file', key=f.key, secret=f.delete_key) }}">
+   {{ _('delete it') }}
+  </a>
+</p>
+
+{% endblock %}
+
+
+{% block sidebar %}
+
+<div class="well">
+ <h3>{{ _('What\'s next?') }}</h3>
+ <p>{{ _('Now, feel free to share the download link, or <a href="%(u)s">upload a new file</a>.', u=url_for('show_upload_form')) }}</p>
+</div>
+
+{% endblock %}

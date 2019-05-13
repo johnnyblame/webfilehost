@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header">
+ <h1>{{ _('Hi!') }} <small>{{ _('Someone wants to share a file with you.') }}</small></h1>
+</div>
+
+<p>{{ _('To Download the file <strong>%(f)s</strong>, please click on the link below.', f=f.filename) }}</p>
+
+<div class="download-link">
+ <p>
+  <a class="btn btn-success btn-large"
+     href="{{ url_for('get_file', key=f.key, filename=f.filename) }}">
+   {{ f.filename }}
+  </a>
+ </p>
+</div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+<div class="well">
+ <h3>{{ _('Want to share a file?') }}</h3>
+ <p>{{ _('You too you can share a file, you just have to <a href="%(u)s">upload it with %(t)s</a>.', u=url_for('show_upload_form'))}}</p>
+</div>
+{% endblock %}
