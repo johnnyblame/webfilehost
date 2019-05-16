@@ -31,8 +31,8 @@ class RegistrationForm(FlaskForm):
 
 
 class FileLifeTime(FlaskForm):
-    lifetime_days = FloatField('Insert lifetime in days')
-    lifetime_hours = FloatField('hours')
-    lifetime_minutes = FloatField('minutes')
-    lifetime_seconds = FloatField('seconds')
+    lifetime_days = FloatField('Insert lifetime in days', default=0)
+    lifetime_hours = FloatField('hours', default=0)
+    lifetime_minutes = FloatField('minutes', default=0)
+    lifetime_seconds = FloatField('seconds', default=0)
 
