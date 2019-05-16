@@ -48,9 +48,14 @@ def upload_file():
     else:
         if 'myfile' in request.files and request.files['myfile']:
             upload_file = request.files['myfile']
+            days = form.lifetime_days.data
+            hours = form.lifetime_hours.data
             mins = form.lifetime_minutes.data
+            seconds = form.lifetime_seconds.data
             global expire_date
-            expire_date = datetime.today() + timedelta(minutes=mins)
+            expire_date = datetime.today() + timedelta(days=days, hours=hours, minutes=mins, seconds=seconds)
+
+
 
 
 
@@ -156,8 +161,8 @@ def get_file(key, filename):
         response.headers['Content-Length'] = filesize
 
         return response
-    elif expire_date <= datetime.now():
-        abort(404)
+    else:
+        return render_template('404.html')
 
 
 @app.route('/delete/<key>/<secret>/', methods=['GET', 'POST'])
@@ -173,6 +178,7 @@ def show_delete_file(key, secret):
         return redirect(url_for('show_upload_form'))
 
     return render_template('show_delete_file.html', f=shared_file)
+
 
 def allowed_file(filename):
     return '.' in filename and \

@@ -95,7 +95,6 @@ class SharedFile():
         self.size = kwargs.get('size', 0)
 
     def save(self):
-        # store the upload file on disk
         self.filename = secure_filename(self.upload_file.filename)
         self.key = self.generate_key()
         self.relative_path = self.key_to_path(self.key)
@@ -106,9 +105,7 @@ class SharedFile():
 
         self.delete_key = uuid.uuid4().hex[:DELETE_KEY_LENGTH]
 
-        # number of days to keep the file
         self.expire_date = datetime.today() + timedelta()
-        # store informations to keep with the file
         infos = {}
         infos['filename'] = self.filename
         infos['key'] = self.key

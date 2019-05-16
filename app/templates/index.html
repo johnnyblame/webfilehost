@@ -22,8 +22,14 @@
 <div class="control-group">
   <div class="controls">
   <p>
+      {{ form.lifetime_days.label }}
+      {{ form.lifetime_days(size=7) }}
+      {{ form.lifetime_hours.label }}
+      {{ form.lifetime_hours(size=7) }}
       {{ form.lifetime_minutes.label }}
-      {{ form.lifetime_minutes(size=10) }}
+      {{ form.lifetime_minutes(size=7) }}
+      {{ form.lifetime_seconds.label }}
+      {{ form.lifetime_seconds(size=7) }}
   </p>
 
   </div>

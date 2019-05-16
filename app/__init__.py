@@ -12,7 +12,5 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
 babel = Babel(app)
-MAX_FILE_SIZE = 1024 * 1024 + 1
-
 
 from app import routes, models
