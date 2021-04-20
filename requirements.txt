@@ -51,7 +51,7 @@ pluggy==0.11.0
 protobuf==3.0.0
 psycopg2==2.8.2
 ptyprocess==0.6.0
-py==1.8.0
+py==1.10.0
 pycrypto==2.6.1
 Pygments==2.2.0
 pygtrie==2.3
