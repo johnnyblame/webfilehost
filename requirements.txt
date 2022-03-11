@@ -45,7 +45,7 @@ pb-tool==3.0.6
 pbr==5.2.0
 pexpect==4.6.0
 pgzero==1.2
-Pillow==5.1.0
+Pillow==9.0.1
 pipdate==0.3.2
 pluggy==0.11.0
 protobuf==3.0.0
